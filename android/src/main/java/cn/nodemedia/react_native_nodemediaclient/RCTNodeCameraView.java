@@ -138,11 +138,20 @@ public class RCTNodeCameraView extends NodeCameraView implements LifecycleEventL
 
     @Override
     public void onHostResume() {
+        try {
+            startPrev();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onHostPause() {
-
+        try {
+            stopPrev();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
