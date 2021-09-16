@@ -158,6 +158,11 @@ public class RCTNodeCameraView extends NodeCameraView implements LifecycleEventL
     public void onHostDestroy() {
         mNodePublisher.stopPreview();
         mNodePublisher.stop();
+        release();
+    }
+
+    public void release() {
+        mNodePublisher.release();
     }
 
     void setupLayoutHack() {
