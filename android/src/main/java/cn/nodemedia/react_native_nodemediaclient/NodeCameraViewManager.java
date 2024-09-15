@@ -34,6 +34,8 @@ public class NodeCameraViewManager extends ViewGroupManager<RCTNodeCameraView> {
     private static final String COMMAND_SWITCH_CAM_NAME = "switchCamera";
     private static final int COMMAND_SWITCH_FLASH_ID = 5;
     private static final String COMMAND_SWITCH_FLASH_NAME = "flashEnable";
+    private static final int COMMAND_RELEASE_CAMERA_ID = 6;
+    private static final String COMMAND_RELEASE_CAMERA = "release";
 
     @Override
     public String getName() {
@@ -113,7 +115,7 @@ public class NodeCameraViewManager extends ViewGroupManager<RCTNodeCameraView> {
     public Map<String, Integer> getCommandsMap() {
         return MapBuilder.of(COMMAND_STARTPREV_NAME, COMMAND_STARTPREV_ID, COMMAND_STOPPREV_NAME, COMMAND_STOPPREV_ID,
                 COMMAND_START_NAME, COMMAND_START_ID, COMMAND_STOP_NAME, COMMAND_STOP_ID, COMMAND_SWITCH_CAM_NAME,
-                COMMAND_SWITCH_CAM_ID, COMMAND_SWITCH_FLASH_NAME, COMMAND_SWITCH_FLASH_ID);
+                COMMAND_SWITCH_CAM_ID, COMMAND_SWITCH_FLASH_NAME, COMMAND_SWITCH_FLASH_ID, COMMAND_RELEASE_CAMERA, COMMAND_RELEASE_CAMERA_ID);
     }
 
     @Override
@@ -136,6 +138,8 @@ public class NodeCameraViewManager extends ViewGroupManager<RCTNodeCameraView> {
                 break;
             case COMMAND_SWITCH_FLASH_ID:
                 root.setFlashEnable(args.getBoolean(0));
+            case COMMAND_RELEASE_CAMERA_ID:
+                root.release();
                 break;
         }
     }

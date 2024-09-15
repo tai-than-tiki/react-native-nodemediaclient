@@ -32,6 +32,14 @@ class NodeCameraView extends Component {
     );
   }
 
+  release() {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.refs[RCT_VIDEO_REF]),
+      UIManager.getViewManagerConfig('RCTNodeCamera').Commands.release,
+      null
+    );
+  }
+
   flashEnable(enable) {
     UIManager.dispatchViewManagerCommand(
       findNodeHandle(this.refs[RCT_VIDEO_REF]),
@@ -80,7 +88,7 @@ class NodeCameraView extends Component {
     />;
   };
 }
-
+ 
 NodeCameraView.name = RCT_VIDEO_REF;
 NodeCameraView.propTypes = {
   outputUrl: PropTypes.string,
